@@ -3,11 +3,12 @@ from rest_framework import filters
 from rest_framework.mixins import ListModelMixin
 from rest_framework.viewsets import GenericViewSet
 
+from locations.models.country import Country
 from locations.api.v1.serializers.country import CountrySerializer
 
 
 class CountryViewSet(ListModelMixin, GenericViewSet):
-    queryset = Permission.objects.all()
+    queryset = Country.objects.all()
     serializer_class = CountrySerializer
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['$id', '$name_ru', 'name_kz']
+    # filter_backends = [filters.SearchFilter]
+    # search_fields = ['$id', '$name_ru', 'name_kz']
